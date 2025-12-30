@@ -103,6 +103,11 @@ app.add_middleware(
 # GZip compression for responses
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
+# Register API routers
+from app.api import workflows
+
+app.include_router(workflows.router, prefix="/api")
+
 # Health check endpoint
 @app.get("/health", tags=["Health"])
 async def health_check():
