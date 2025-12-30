@@ -104,11 +104,14 @@ app.add_middleware(
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 # Register API routers
-from app.api import workflows, capabilities, connectors
+from app.api import workflows, capabilities, connectors, control_policies, kill_switches, change_requests
 
 app.include_router(workflows.router, prefix="/api")
 app.include_router(capabilities.router, prefix="/api")
 app.include_router(connectors.router, prefix="/api")
+app.include_router(control_policies.router, prefix="/api")
+app.include_router(kill_switches.router, prefix="/api")
+app.include_router(change_requests.router, prefix="/api")
 
 # Health check endpoint
 @app.get("/health", tags=["Health"])
