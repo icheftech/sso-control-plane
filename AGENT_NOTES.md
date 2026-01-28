@@ -1267,3 +1267,7 @@ async def execute_change_request(
 ---
 
 **This is production software. Write it accordingly.**
+
+## Data Protection & Tokenization
+
+This system assumes PHI/PII is tokenized at the data layer and only minimally detokenized through governed capabilities. See [TOKENIZATION_STRATEGY.md](./TOKENIZATION_STRATEGY.md) for full implementation details.
